@@ -7,7 +7,6 @@ LOCAL="/home/skyline/skyline/www"
 LOCAL="master"
 while read oldrev newrev ref
 do
-<<<<<<< HEAD
 	if [[ $ref = refs/heads/$BRANCH ]];
 	then
 		echo "Master ref received.  Deploying ${BRANCH} branch to production..."
@@ -17,17 +16,5 @@ do
 		echo "Ref $ref successfully received."
 		echo " Doing nothing: only the ${BRANCH} branch may be deployed on this server."
 	fi
-=======
-if [[ $ref = refs/heads/$BRANCH ]];
-then
-echo "Master ref received.  Deploying ${BRANCH} branch to production..."
-rm -rf $TARGET
-cp -r $LOCAL $TARGET
-echo "Restarting Aapche"
-sudo service apache2 reload
-else
-echo "Ref $ref successfully received."
-echo " Doing nothing: only the ${BRANCH} branch may be deployed on this server."
-fi
->>>>>>> aeceee90ec85a369885631c45e4c7cecaeabb7a2
 done
+
